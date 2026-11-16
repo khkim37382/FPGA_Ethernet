@@ -49,6 +49,10 @@ or SSH credentials.
 
 ## Move the board to Windows or Linux
 
+For the full copy-and-paste Windows procedure without Codex, use the
+[Windows README](../README_WINDOWS.md), including the one-time new-key
+bootstrap through the trusted Mac or UART.
+
 Yes: keep the same DE10 SD card and ARM sender. Changing the host OS does not
 require recompiling the FPGA design or converting the ARM executable into a
 Windows/Linux host binary. The new host runs the Python receiver/decoder.

@@ -72,3 +72,14 @@ same decoder arguments; choose the actual board variant for real acquisition.
 
 Official Quartus host matrix:
 https://www.altera.com/developers/software/os-support
+
+## Human-operated setup without Codex
+
+The N3 repository includes a standalone Windows README with PowerShell commands,
+new-client SSH authorization, physical replay verification, Quartus GUI/CLI and
+explicit custom boot/UIO gates:
+https://github.com/khkim37382/FPGA_Ethernet/blob/main/README_WINDOWS.md
+
+For a new client, resolve the authorization bootstrap before telling the user
+to SSH: a newly generated private/public pair does not install itself on a
+key-only board. Use the trusted old host or UART to append its public key.

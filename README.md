@@ -11,6 +11,10 @@ is included.
 
 ## Start here
 
+- **[Windows README — no Codex required](README_WINDOWS.md):** terminal commands
+  for SSH authorization, Ethernet replay/verification, Quartus build/programming,
+  and the remaining custom HPS/UIO integration requirements.
+
 - [Setup lessons and Windows/Linux portability](docs/SETUP_LESSONS.md): what we
   learned on the physical board, verified results, and moving to another host.
 - [Reusable FPGA setup skill](skills/fpga-board-setup/SKILL.md): identifies the

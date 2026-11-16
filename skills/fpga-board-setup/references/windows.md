@@ -83,3 +83,20 @@ https://github.com/khkim37382/FPGA_Ethernet/blob/main/README_WINDOWS.md
 For a new client, resolve the authorization bootstrap before telling the user
 to SSH: a newly generated private/public pair does not install itself on a
 key-only board. Use the trusted old host or UART to append its public key.
+
+## Reported DHCP/static-address conflict — 2026-11-16
+
+The first Windows user reported `New-NetIPAddress: Inconsistent parameters
+PolicyStore PersistentStore and Dhcp Enabled` (error 87). Do not claim its exact
+cause was established or that a proposed fix ran successfully without output.
+For the already-identified, dedicated adapter, the README now uses Microsoft's
+`netsh interface ipv4 set address ... source=static ... gateway=none
+store=persistent` to configure addressing in one operation, followed by actual
+DHCP/address checks. Preserve the adapter backup and verify the selection first;
+this replaces that adapter's IPv4 address/gateway setup, not Wi-Fi.
+
+Microsoft documents that `Set-NetIPInterface -Dhcp` is stored in ActiveStore;
+changing DHCP in PersistentStore has no effect. Do not repeatedly write DHCP
+settings into both stores as a supposed repair. If applying the documented
+fallback still fails, inspect the actual interface state/policy rather than
+claiming success or resetting the entire network stack.

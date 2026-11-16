@@ -145,7 +145,9 @@ Get-NetIPAddress -InterfaceIndex $IfIndex -AddressFamily IPv4
 ```
 
 Confirm the selection is the dedicated board adapter, **not Wi-Fi**. Save its
-current settings before modifying it:
+current settings before modifying it. The next block replaces IPv4 address/
+gateway configuration on this selected dedicated adapter. If it already has
+another static setup you need, review that setup before proceeding:
 
 ```powershell
 $NicBackup = Join-Path ([Environment]::GetFolderPath('Desktop')) 'de10-nic-before.txt'
@@ -153,12 +155,14 @@ Get-NetIPConfiguration -InterfaceIndex $IfIndex |
     Format-List * | Out-File $NicBackup
 Get-NetIPInterface -InterfaceIndex $IfIndex -AddressFamily IPv4 |
     Format-List * | Out-File $NicBackup -Append
-Set-NetIPInterface -InterfaceIndex $IfIndex -AddressFamily IPv4 -Dhcp Disabled
-if (-not (Get-NetIPAddress -InterfaceIndex $IfIndex -AddressFamily IPv4 |
-          Where-Object IPAddress -eq '192.168.50.1')) {
-    New-NetIPAddress -InterfaceIndex $IfIndex -IPAddress 192.168.50.1 -PrefixLength 24
-}
+netsh interface ipv4 set address "name=$($Nic.Name)" source=static address=192.168.50.1 mask=255.255.255.0 gateway=none store=persistent
+if ($LASTEXITCODE -ne 0) { throw 'Static Ethernet configuration failed. Stop and inspect the error.' }
+Get-NetIPInterface -InterfaceIndex $IfIndex -AddressFamily IPv4 |
+    Format-Table InterfaceIndex, InterfaceAlias, Dhcp, ConnectionState
 Get-NetIPAddress -InterfaceIndex $IfIndex -AddressFamily IPv4
+if ((Get-NetIPInterface -InterfaceIndex $IfIndex -AddressFamily IPv4).Dhcp -ne 'Disabled') {
+    throw 'DHCP is still enabled; do not proceed until this is resolved.'
+}
 ```
 
 If this adapter already had another static address or a default route, review
@@ -166,7 +170,18 @@ and restore/reconfigure those settings deliberately; do not delete settings
 from unrelated interfaces. See Microsoft's
 [New-NetIPAddress](https://learn.microsoft.com/en-us/powershell/module/nettcpip/new-netipaddress)
 and [Set-NetIPInterface](https://learn.microsoft.com/en-us/powershell/module/nettcpip/set-netipinterface)
-reference for the networking commands.
+reference for the PowerShell inspection commands. Address configuration above
+uses Microsoft's documented
+[`netsh interface ipv4 set address`](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/netsh-interface)
+to select static addressing and set the address in one operation.
+
+If an older copy of this guide produced `Inconsistent parameters PolicyStore
+PersistentStore and Dhcp Enabled` from `New-NetIPAddress`, use the `netsh` block
+above instead. Re-select/confirm the correct NIC if using a new window. Microsoft
+notes that `Set-NetIPInterface -Dhcp` changes the active policy store; setting
+DHCP on PersistentStore is not a fix. Verify `Dhcp` is Disabled and the address
+is 192.168.50.1/24 before testing the board. This fallback is documented, but
+its success on the reporting Windows machine still needs confirmation.
 
 Allow the receiver's UDP traffic only on this direct link. The rule uses `Any`
 profile because an isolated wired connection may be classified as Public, but
@@ -708,6 +723,7 @@ update receiver/source checks consistently before scaling up.
 
 | Symptom | Check / action |
 |---|---|
+| `New-NetIPAddress` reports PersistentStore / DHCP Enabled (error 87) | Use the updated section 3 `netsh ... source=static` block on the confirmed wired NIC, in Administrator PowerShell. Verify DHCP Disabled and 192.168.50.1/24. Do not try to disable DHCP by writing PersistentStore. |
 | No link/adapter | Verify board power, RJ45 cable, adapter driver, and `Get-NetAdapter`. Link LEDs or 1 Gbit/s only establish physical carrier. |
 | Link works, no ping | Check Windows is 192.168.50.1/24 and board uses the provisioned SD/IP. A stock unconfigured SD needs section 11. Check subnet conflicts and duplicate IPs. |
 | TCP 22 fails | Linux/SSH may not have booted, or addressing differs. Inspect through UART if available; do not keep guessing passwords. |

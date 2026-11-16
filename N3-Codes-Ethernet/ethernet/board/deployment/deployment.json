@@ -1,0 +1,113 @@
+{
+  "status": "template: verify physical board variants and fill UIO assignments before deployment",
+  "boards": [
+    {
+      "id": 1,
+      "ip": "192.168.1.101",
+      "variant": "Athena_DE10_LSB",
+      "destination": "192.168.1.100",
+      "port": 5000,
+      "uio_device": null,
+      "timestamp_hz": 50000000
+    },
+    {
+      "id": 2,
+      "ip": "192.168.1.102",
+      "variant": "Athena_DE10_LSB",
+      "destination": "192.168.1.100",
+      "port": 5000,
+      "uio_device": null,
+      "timestamp_hz": 50000000
+    },
+    {
+      "id": 3,
+      "ip": "192.168.1.103",
+      "variant": "Athena_DE10_LSB",
+      "destination": "192.168.1.100",
+      "port": 5000,
+      "uio_device": null,
+      "timestamp_hz": 50000000
+    },
+    {
+      "id": 4,
+      "ip": "192.168.1.104",
+      "variant": "Athena_DE10_LSB",
+      "destination": "192.168.1.100",
+      "port": 5000,
+      "uio_device": null,
+      "timestamp_hz": 50000000
+    },
+    {
+      "id": 5,
+      "ip": "192.168.1.105",
+      "variant": "Athena_DE10_LSB",
+      "destination": "192.168.1.100",
+      "port": 5000,
+      "uio_device": null,
+      "timestamp_hz": 50000000
+    },
+    {
+      "id": 6,
+      "ip": "192.168.1.106",
+      "variant": "Athena_DE10_LSB",
+      "destination": "192.168.1.100",
+      "port": 5000,
+      "uio_device": null,
+      "timestamp_hz": 50000000
+    },
+    {
+      "id": 7,
+      "ip": "192.168.1.107",
+      "variant": "Athena_DE10_LSB",
+      "destination": "192.168.1.100",
+      "port": 5000,
+      "uio_device": null,
+      "timestamp_hz": 50000000
+    },
+    {
+      "id": 8,
+      "ip": "192.168.1.108",
+      "variant": "Athena_DE10_LSB",
+      "destination": "192.168.1.100",
+      "port": 5000,
+      "uio_device": null,
+      "timestamp_hz": 50000000
+    },
+    {
+      "id": 9,
+      "ip": "192.168.1.109",
+      "variant": "Athena_DE10_LSB",
+      "destination": "192.168.1.100",
+      "port": 5000,
+      "uio_device": null,
+      "timestamp_hz": 50000000
+    },
+    {
+      "id": 10,
+      "ip": "192.168.1.110",
+      "variant": "Athena_DE10_LSB",
+      "destination": "192.168.1.100",
+      "port": 5000,
+      "uio_device": null,
+      "timestamp_hz": 50000000
+    },
+    {
+      "id": 11,
+      "ip": "192.168.1.111",
+      "variant": "Athena_DE10_LSB",
+      "destination": "192.168.1.100",
+      "port": 5000,
+      "uio_device": null,
+      "timestamp_hz": 50000000
+    },
+    {
+      "id": 12,
+      "ip": "192.168.1.112",
+      "variant": "Athena_DE10_LSB",
+      "destination": "192.168.1.100",
+      "port": 5000,
+      "uio_device": null,
+      "timestamp_hz": 50000000
+    }
+  ]
+}

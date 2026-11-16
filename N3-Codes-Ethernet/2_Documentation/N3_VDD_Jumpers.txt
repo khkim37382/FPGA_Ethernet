@@ -1,0 +1,2 @@
+27-40 are on VDD_SR_11_to_1
+41-52 are on VDD_SR_16_to_1

@@ -1,0 +1,630 @@
+// ============================================================================
+// Copyright (c) 2016 by Terasic Technologies Inc.
+// ============================================================================
+//
+// Permission:
+//
+//   Terasic grants permission to use and modify this code for use
+//   in synthesis for all Terasic Development Boards and Altera Development 
+//   Kits made by Terasic.  Other use of this code, including the selling 
+//   ,duplication, or modification of any portion is strictly prohibited.
+//
+// Disclaimer:
+//
+//   This VHDL/Verilog or C/C++ source code is intended as a design reference
+//   which illustrates how these types of functions can be implemented.
+//   It is the user's responsibility to verify their design for
+//   consistency and functionality through the use of formal
+//   verification methods.  Terasic provides no warranty regarding the use 
+//   or functionality of this code.
+//
+// ============================================================================
+//           
+//  Terasic Technologies Inc
+//  9F., No.176, Sec.2, Gongdao 5th Rd, East Dist, Hsinchu City, 30070. Taiwan
+//  
+//  
+//                     web: http://www.terasic.com/  
+//                     email: support@terasic.com
+//
+// ============================================================================
+//Date:  Thu Nov  3 15:01:20 2016
+// ============================================================================
+
+`define ENABLE_HSMC
+//`define ENABLE_UNUSED
+//`define ENABLE_HPS
+
+module DE10_TOP(
+
+
+//=======================================================
+//  PORT declarations
+//=======================================================
+
+      ///////// CLOCK /////////
+      input              CLOCK2_50,
+      input              CLOCK3_50,
+      input              CLOCK4_50,
+      input              CLOCK_50,
+
+      ///////// KEY /////////
+      input    [3:0]   KEY,
+
+      ///////// SW /////////
+      input    [9:0]   SW,
+
+      ///////// LED /////////
+      output   [9:0]   LEDR,
+
+      ///////// Seg7 /////////
+      output   [6:0]   HEX0,
+      output   [6:0]   HEX1,
+      output   [6:0]   HEX2,
+      output   [6:0]   HEX3,
+      output   [6:0]   HEX4,
+      output   [6:0]   HEX5,
+
+      ///////// GPIO /////////
+      inout    [35: 0]   GPIO,
+
+`ifdef ENABLE_HSMC
+      ///////// HSMC /////////
+      input              HSMC_CLKIN_P1,
+      input              HSMC_CLKIN_N1,
+      input              HSMC_CLKIN_P2,
+      input              HSMC_CLKIN_N2, // SR0
+      output             HSMC_CLKOUT_P1,
+      output             HSMC_CLKOUT_N1,
+      output             HSMC_CLKOUT_P2,
+      output             HSMC_CLKOUT_N2,
+      inout    [16: 0]   HSMC_TX_D_P,
+      inout    [16: 0]   HSMC_TX_D_N,
+      inout    [16: 0]   HSMC_RX_D_P,
+      inout    [16: 0]   HSMC_RX_D_N,
+      input              HSMC_CLKIN0,
+      output             HSMC_CLKOUT0,
+      inout    [ 3: 0]   HSMC_D,
+      output             HSMC_SCL,
+      inout              HSMC_SDA,
+`endif /*ENABLE_HSMC*/
+
+`ifdef ENABLE_UNUSED
+      ///////// SDRAM /////////
+      output             DRAM_CLK,
+      output             DRAM_CKE,
+      output   [12: 0]   DRAM_ADDR,
+      output   [ 1: 0]   DRAM_BA,
+      inout    [15: 0]   DRAM_DQ,
+      output             DRAM_LDQM,
+      output             DRAM_UDQM,
+      output             DRAM_CS_N,
+      output             DRAM_WE_N,
+      output             DRAM_CAS_N,
+      output             DRAM_RAS_N,
+
+      ///////// Video-In /////////
+      input              TD_CLK27,
+      input              TD_HS,
+      input              TD_VS,
+      input    [ 7: 0]   TD_DATA,
+      output             TD_RESET_N,
+
+      ///////// VGA /////////
+      output             VGA_CLK,
+      output             VGA_HS,
+      output             VGA_VS,
+      output   [ 7: 0]   VGA_R,
+      output   [ 7: 0]   VGA_G,
+      output   [ 7: 0]   VGA_B,
+      output             VGA_BLANK_N,
+      output             VGA_SYNC_N,
+
+      ///////// Audio /////////
+      inout              AUD_BCLK,
+      output             AUD_XCK,
+      inout              AUD_ADCLRCK,
+      input              AUD_ADCDAT,
+      inout              AUD_DACLRCK,
+      output             AUD_DACDAT,
+
+      ///////// PS2 /////////
+      inout              PS2_CLK,
+      inout              PS2_CLK2,
+      inout              PS2_DAT,
+      inout              PS2_DAT2,
+
+      ///////// ADC /////////
+      output             ADC_SCLK,
+      input              ADC_DOUT,
+      output             ADC_DIN,
+      output             ADC_CONVST,
+
+      ///////// I2C for Audio and Video-In /////////
+      output             FPGA_I2C_SCLK,
+      inout              FPGA_I2C_SDAT,
+`endif
+
+`ifdef ENABLE_HPS
+      ///////// HPS /////////
+      inout              HPS_CONV_USB_N,
+      output   [14: 0]   HPS_DDR3_ADDR,
+      output   [ 2: 0]   HPS_DDR3_BA,
+      output             HPS_DDR3_CAS_N,
+      output             HPS_DDR3_CKE,
+      output             HPS_DDR3_CK_N,
+      output             HPS_DDR3_CK_P,
+      output             HPS_DDR3_CS_N,
+      output   [ 3: 0]   HPS_DDR3_DM,
+      inout    [31: 0]   HPS_DDR3_DQ,
+      inout    [ 3: 0]   HPS_DDR3_DQS_N,
+      inout    [ 3: 0]   HPS_DDR3_DQS_P,
+      output             HPS_DDR3_ODT,
+      output             HPS_DDR3_RAS_N,
+      output             HPS_DDR3_RESET_N,
+      input              HPS_DDR3_RZQ,
+      output             HPS_DDR3_WE_N,
+      output             HPS_ENET_GTX_CLK,
+      inout              HPS_ENET_INT_N,
+      output             HPS_ENET_MDC,
+      inout              HPS_ENET_MDIO,
+      input              HPS_ENET_RX_CLK,
+      input    [ 3: 0]   HPS_ENET_RX_DATA,
+      input              HPS_ENET_RX_DV,
+      output   [ 3: 0]   HPS_ENET_TX_DATA,
+      output             HPS_ENET_TX_EN,
+      inout    [ 3: 0]   HPS_FLASH_DATA,
+      output             HPS_FLASH_DCLK,
+      output             HPS_FLASH_NCSO,
+      inout              HPS_GSENSOR_INT,
+      inout              HPS_I2C1_SCLK,
+      inout              HPS_I2C1_SDAT,
+      inout              HPS_I2C2_SCLK,
+      inout              HPS_I2C2_SDAT,
+      inout              HPS_I2C_CONTROL,
+      inout              HPS_KEY,
+      inout              HPS_LCM_BK,
+      inout              HPS_LCM_D_C,
+      inout              HPS_LCM_RST_N,
+      output             HPS_LCM_SPIM_CLK,
+      output             HPS_LCM_SPIM_MOSI,
+	  input 			 HPS_LCM_SPIM_MISO,
+      output             HPS_LCM_SPIM_SS,
+      inout              HPS_LED,
+      inout              HPS_LTC_GPIO,
+      output             HPS_SD_CLK,
+      inout              HPS_SD_CMD,
+      inout    [ 3: 0]   HPS_SD_DATA,
+      output             HPS_SPIM_CLK,
+      input              HPS_SPIM_MISO,
+      output             HPS_SPIM_MOSI,
+      output             HPS_SPIM_SS,
+      inout              HPS_UART_RX,
+      inout             HPS_UART_TX,
+      input              HPS_USB_CLKOUT,
+      inout    [ 7: 0]   HPS_USB_DATA,
+      input              HPS_USB_DIR,
+      input              HPS_USB_NXT,
+      output             HPS_USB_STP,
+
+      ///////// IR /////////
+      output             IRDA_TXD,
+      input              IRDA_RXD,
+
+`endif
+
+
+      inout [7:0] memory_mem_dq,
+      output      memory_mem_dm,
+      inout       memory_mem_dqs,
+      inout       memory_mem_dqs_n,
+      output [12:0] memory_mem_a,
+      output [2:0] memory_mem_ba,
+      output    memory_mem_cas_n,
+      output     memory_mem_cke,
+      output     memory_mem_ck,
+      output     memory_mem_ck_n,
+      output     memory_mem_cs_n,
+      output     memory_mem_odt,
+      output     memory_mem_ras_n,
+      output     memory_mem_we_n,
+      output     memory_mem_reset_n,
+      input      memory_oct_rzqin,
+
+      inout             HPS_UART_RX,
+      inout             HPS_UART_TX
+
+);
+
+//=======================================================
+//  REG/WIRE declarations
+//=======================================================
+
+wire [160-1:0] counter;//needs to be modified each time
+
+wire clk2_5; 
+wire pulse;
+wire clk_sr;
+
+wire clr_ctr;
+wire load_b;
+wire clk_piso;
+
+wire internal_reset; //internal reset signal that reset set and data counters
+
+wire [160-1:0] lsb_data;
+wire lsb_xmit_ready;
+wire lsb_xmit_ack;
+
+wire [160-1:0] ffmcu_data;
+wire ffmcu_xmit_ready;
+wire ffmcu_xmit_ack;
+
+wire [160-1:0] sram_data0;
+wire sram_xmit_ready0;
+wire sram_xmit_ack0;
+
+wire [160-1:0] sram_data1;
+wire sram_xmit_ready1;
+wire sram_xmit_ack1;
+
+wire [160-1:0] ivt_data;
+wire ivt_xmit_ready;
+wire ivt_xmit_ack;
+
+wire [1:0] SRAM_data_select;
+
+
+// SR0-SR35 connected to J2
+
+// TOP SIDE OF J2
+      assign counter[0] = HSMC_CLKIN_N2;
+      assign counter[1]= HSMC_CLKIN_P2;
+      assign counter[2] = HSMC_TX_D_N[16];
+      assign counter[3] = HSMC_TX_D_P[16];
+      assign counter[4] = HSMC_TX_D_N[15];
+      // 5 volt pin here
+      assign counter[5] = HSMC_TX_D_P[15];
+      assign counter[6] = HSMC_TX_D_N[14];
+      assign counter[7] = HSMC_TX_D_P[14];
+      assign counter[8] = HSMC_CLKOUT_N2;
+      assign counter[9] = HSMC_CLKOUT_P2;
+      assign counter[10] = HSMC_TX_D_N[13];
+      assign counter[11] = HSMC_TX_D_P[13];
+      assign counter[12] = HSMC_TX_D_N[12];
+      // 3.3v pin here
+      assign counter[13] = HSMC_TX_D_P[12];
+      assign counter[14] = HSMC_TX_D_N[11];
+      assign counter[15] = HSMC_TX_D_P[11];
+      assign counter[16] = HSMC_TX_D_N[10];
+      assign counter[17] = HSMC_TX_D_P[10];
+
+// BOTTOM SIDE OF J2
+      assign counter[18] = HSMC_RX_D_N[16];
+      assign counter[19] = HSMC_RX_D_P[16];
+      assign counter[20] = HSMC_RX_D_N[15];
+      assign counter[21] = HSMC_RX_D_P[15];
+      assign counter[22] = HSMC_RX_D_N[14];
+      // GND Here
+      assign counter[23] = HSMC_RX_D_P[14];
+      assign counter[24] = HSMC_RX_D_N[13];
+      assign counter[25] = HSMC_RX_D_P[13];
+      assign counter[26] = HSMC_RX_D_N[12];
+      assign counter[27] = HSMC_RX_D_P[12];
+      assign counter[28] = HSMC_RX_D_N[11];
+      assign counter[29] = HSMC_RX_D_P[11];
+      assign counter[30] = HSMC_RX_D_N[10];
+      assign counter[31] = HSMC_RX_D_P[10];
+      assign counter[32] = HSMC_RX_D_N[9];
+      assign counter[33] = HSMC_RX_D_P[9];
+      assign counter[34] = HSMC_TX_D_N[9];
+      assign counter[35] = HSMC_TX_D_P[9];
+
+// SR36-59 connected to J3
+
+// TOP SIDE OF J3
+      assign counter[36] = HSMC_CLKIN_N1;
+      assign counter[37] = HSMC_CLKIN_P1;
+      assign counter[38] = HSMC_TX_D_N[7];
+      assign counter[39] = HSMC_TX_D_P[7];
+      assign counter[40] = HSMC_TX_D_N[6];
+      // 5V Here
+      assign counter[41] = HSMC_TX_D_P[6];
+      assign counter[42] = HSMC_TX_D_N[5];
+      assign counter[43] = HSMC_TX_D_P[5];
+      assign counter[44] = HSMC_CLKOUT_N1;
+      assign counter[45] = HSMC_CLKOUT_P1;
+      assign counter[46] = HSMC_TX_D_N[4];
+      assign counter[47] = HSMC_TX_D_P[4];
+      assign counter[48] = HSMC_TX_D_N[3];
+      // 3.3V Here
+      assign counter[49] = HSMC_TX_D_P[3];
+      assign counter[50] = HSMC_TX_D_N[2];
+      assign counter[51] = HSMC_TX_D_P[2];
+      assign counter[52] = HSMC_TX_D_N[1];
+      assign counter[53] = HSMC_TX_D_P[1];
+
+// BOTTOM SIDE OF J3
+      
+      assign HSMC_RX_D_N[7] = clk_sr; //CLK       HSMC_RX_D_N[7]
+      assign HSMC_RX_D_P[7] = clk_piso; //CLK PISO  HSMC_RX_D_P[7]
+      assign HSMC_RX_D_N[6] = SW[3]; //ENABLE    HSMC_RX_D_N[6]
+      assign HSMC_RX_D_P[6] = clr_ctr; //CLEAR CTR HSMC_RX_D_P[6]
+      assign HSMC_RX_D_N[5] = load_b; //LOAD B    HSMC_RX_D_N[5]
+      //GND
+      assign HSMC_RX_D_P[5] = SW[6]; //S0RO      HSMC_RX_D_P[5]
+      assign HSMC_RX_D_N[4] = SW[4]; //S0 DIV    HSMC_RX_D_N[4]
+      assign HSMC_RX_D_P[4] = SW[5]; //S1 DIV    HSMC_RX_D_P[4]
+      assign HSMC_RX_D_N[3] = SW[7]; //S1RO      HSMC_RX_D_N[3]
+      assign HSMC_RX_D_P[3] = KEY[1]; //ADC RST   HSMC_RX_D_P[3]
+      //ADC DRDY  HSMC_RX_D_N[2]
+      assign HSMC_RX_D_P[2] = SW[0]; //DATA IN   HSMC_RX_D_P[2]
+      //assign GPIO[23] = SW[0];
+		assign counter[59] = HSMC_RX_D_N[1]; // SRs listed in decreasing order to match connector orientation
+      //GND
+      assign counter[58] = HSMC_RX_D_P[1];
+      assign counter[57] = HSMC_RX_D_N[0]; 
+      assign counter[56] = HSMC_RX_D_P[0];
+      assign counter[55] = HSMC_TX_D_N[0];
+      assign counter[54] = HSMC_TX_D_P[0];
+      
+
+/* SWITCH CONFIGURATIONS
+      SW0: Error injection (data in)
+      SW1: SRAM Data Select 0
+      SW2: SRAM Data Select 1
+      SW3: Enable Ring Oscillators
+      SW4: S0 DIV
+      SW5: S1 DIV
+      SW6: S0RO
+      SW7: S1RO
+      SW8: SRAM Addr Select
+      SW9: FFMCU Enable
+
+*/
+
+assign SRAM_data_select[1] =  SW[2];
+assign SRAM_data_select[0] =  SW[1];
+
+//assign GPIO[28] = SW[0]; // checkerboard
+assign GPIO[28] = 0; // checkerboard hardcoded
+
+// This should be FFMCU control sig (SEL SR PISO?)
+assign GPIO[29] = SW[9]; 
+
+assign clr_ctr = 0;
+assign load_b = 0;
+assign clk_piso = clk2_5;
+assign clk_sr = clk2_5;
+
+//assign clr_ctr = SW[16];
+//assign load_b = SW[15];
+
+wire SRAM1_status;
+wire SRAM2_status;
+
+
+//=======================================================
+// Instantiation of loan IO interface for USB
+//=======================================================
+
+wire uart_tx;
+wire uart_rx;
+
+// These will be unconnected loan io wires [66:0] size
+wire [66:0] loan_io_in;
+wire [66:0] loan_io_out;
+wire [66:0] loan_io_oe;
+
+loan_io u0 (
+
+.clk_clk(CLOCK_50),
+.reset_reset_n(KEY[0]),
+
+.hps_io_hps_io_gpio_inst_LOANIO49 (HPS_UART_RX), //  hps_io.hps_io_gpio_inst_LOANIO49
+.hps_io_hps_io_gpio_inst_LOANIO50 (HPS_UART_TX), //        .hps_io_gpio_inst_LOANIO50
+
+.memory_mem_a (memory_mem_a),
+.memory_mem_ba (memory_mem_ba),
+.memory_mem_ck (memory_mem_ck),
+.memory_mem_ck_n (memory_mem_ck_n),
+.memory_mem_cke   (memory_mem_cke),
+.memory_mem_cs_n (memory_mem_cs_n),
+.memory_mem_ras_n (memory_mem_ras_n),
+.memory_mem_cas_n (memory_mem_cas_n),
+.memory_mem_we_n (memory_mem_we_n),
+.memory_mem_reset_n (memory_mem_reset_n),
+.memory_mem_dq (memory_mem_dq),
+.memory_mem_dqs (memory_mem_dqs),
+.memory_mem_dqs_n (memory_mem_dqs_n),
+.memory_mem_odt   (memory_mem_odt),
+.memory_mem_dm    (memory_mem_dm),
+.memory_oct_rzqin (memory_oct_rzqin),
+
+.loan_io_in(loan_io_in),
+.loan_io_out(loan_io_out),
+.loan_io_oe(loan_io_oe)
+
+);
+
+// Assign uart_tx to loan_io_out[62]
+//assign uart_tx = loan_io_out[62];
+//assign uart_rx = loan_io_in[61];
+assign uart_tx = loan_io_out[50];
+assign uart_rx = loan_io_in[49];
+
+//assign loan_io_oe[62] = 1'b1; // UART TX is always an output
+//assign loan_io_oe[61] = 1'b0; // UART RX is always an input
+assign loan_io_oe[50] = 1'b1; // UART TX is always an output
+assign loan_io_oe[49] = 1'b0; // UART RX is always an input
+
+//=======================================================
+//  Structural coding
+//=======================================================
+
+
+//lsb_main sets up main_controller.vhd, lsb_counter.vhd, and xmit modules
+lsb_main lsb_main_test 
+(
+.reset(KEY[0]),
+.sys_clk(CLOCK_50),
+.counter_inmain(counter),
+//serial ports
+.data_out(lsb_data),
+.xmit_ready(lsb_xmit_ready),
+.xmit_ack(lsb_xmit_ack)
+);
+
+
+SRAM_main #(
+.num_addrbits(13),
+.num_databits(64),
+.waitlimit(5000000),
+.num_rmbits(5),
+.sram_number("0000"),
+.read_margin("0000000")
+)sram_test1 
+(
+.sys_clk(CLOCK_50),
+.reset(KEY[0]),
+.data_select(SRAM_data_select),
+.enable(1),
+.reading_status(SRAM1_status),
+.sram_addr_select(SW[8]),
+
+
+.RCLK(GPIO[7]),
+.ME(GPIO[5]),
+.WE(GPIO[23]),
+.MCLK(GPIO[1]),
+
+.SE_D(GPIO[25]),
+.SI_ADR(GPIO[15]),
+.SE_Q(GPIO[11]),
+.SI_D(GPIO[17]),
+.SE_ADR(GPIO[9]),
+.SI_Q(GPIO[19]),
+.SO_Q(GPIO[33]),
+//.SO_ADR(GPIO[29]),
+.SO_D(GPIO[35]),
+
+.SI_RM(GPIO[21]),
+.SE_RM(GPIO[13]),
+.SO_RM(GPIO[31]),
+
+.load_q(GPIO[3]),
+
+//serial ports
+.serial_out(sram_data0),
+.xmit_ready(sram_xmit_ready0),
+.xmit_ack(sram_xmit_ack0), 
+
+.LED_err(LEDR[5]),
+.LED_init(LEDR[6]),
+.LED_read(LEDR[7])
+);
+
+
+SRAM_main #(
+.num_addrbits(11),
+.num_databits(128),
+.waitlimit(5000000),
+.num_rmbits(5),
+.sram_number("0001"),
+.read_margin("0000000")
+)sram_test2 
+(
+.sys_clk(CLOCK_50),
+.reset(KEY[1]),
+.data_select(SRAM_data_select),
+.enable(SRAM1_status),
+.reading_status(LEDR[9]),
+.sram_addr_select(SW[8]),
+
+
+.RCLK(GPIO[6]),
+.ME(GPIO[4]),
+.WE(GPIO[22]),
+.MCLK(GPIO[0]),
+
+.SE_D(GPIO[24]),
+.SI_ADR(GPIO[14]),
+.SE_Q(GPIO[10]),
+.SI_D(GPIO[16]),
+.SE_ADR(GPIO[8]),
+.SI_Q(GPIO[18]),
+.SO_Q(GPIO[32]),
+//.SO_ADR(GPIO[28]),
+.SO_D(GPIO[34]),
+
+.SI_RM(GPIO[20]),
+.SE_RM(GPIO[12]),
+.SO_RM(GPIO[30]),
+
+.load_q(GPIO[2]),
+
+//serial ports
+.serial_out(sram_data1),
+.xmit_ready(sram_xmit_ready1),
+.xmit_ack(sram_xmit_ack1), 
+
+.LED_err(LEDR[0]),
+.LED_init(LEDR[1]),
+.LED_read(LEDR[2])
+);
+
+
+powerdata power //monitors voltage, current, and temperature of board
+(
+.sda(GPIO[27]),
+.scl(GPIO[26]),
+
+.clk(CLOCK_50),
+.reset(KEY[0]),
+
+.DRDY(HSMC_RX_D_N[2]),
+
+.data_out(ivt_data),
+.out_ready(ivt_xmit_ready),
+.out_ack(ivt_xmit_ack)
+);
+
+
+
+xmit_mux serial_xmit
+(
+.SRAM_DATA1(sram_data0),
+.SRAM_READY1(sram_xmit_ready0),
+.SRAM_ACK1(sram_xmit_ack0),
+
+.SRAM_DATA2(sram_data1),
+.SRAM_READY2(sram_xmit_ready1),
+.SRAM_ACK2(sram_xmit_ack1),
+
+.COUNTER_DATA(lsb_data),
+.COUNTER_READY(lsb_xmit_ready),
+.COUNTER_ACK(lsb_xmit_ack),
+
+.IVT_DATA(ivt_data),
+.IVT_READY(ivt_xmit_ready),
+.ivt_ACK(ivt_xmit_ack),
+		
+.clk(CLOCK_50),
+.reset(KEY[0]),
+		
+.serial_out(uart_tx)
+);
+
+Clock2_5MHz slow_clock
+(
+.clk2_5MHz(clk2_5),
+.clk_in(CLOCK_50)
+);
+
+singlepulse pulse1
+(
+.pulse(pulse),
+.clk_in(clk2_5)
+);
+
+endmodule

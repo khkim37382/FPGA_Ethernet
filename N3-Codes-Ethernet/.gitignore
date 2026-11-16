@@ -1,0 +1,326 @@
+*/output_files
+*/db
+*/incremental_db
+*/simulation
+**/.DS_Store
+
+# Not sure why the directory structure needed to be specified, but it did.
+FPGA_DE*/*/output_files
+FPGA_DE*/*/db
+FPGA_DE*/*/incremental_db
+FPGA_DE*/*/simulation
+FPGA_DE*/.DS_Store
+
+*/*.bak
+
+# Keep legacy parser source; omit historical measurement datasets/plots.
+1_Parse_Data/**/*.csv
+1_Parse_Data/**/*.png
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+
+
+
+*.qws
+Zeus_HF/2_5M_SRAM_SR_nativelink_simulation.rpt
+Functional_Tests/RUN_LOG.csv
+Zeus_HF/2_5M_SRAM_SR_nativelink_simulation.rpt
+**/.DS_Store
+1_Parse_Data/.DS_Store
+1_Parse_Data/.DS_Store
+1_Parse_Data/.DS_Store
+.DS_Store
+2_Documentation/DE10 FPGAs/DE10-Standard_UBoot_SD_Rev1.img
+1_Parse_Data/PUF/Athena-Data/DATA_TOO_SHORT_PUF750_MAR1__RT_A-W7L10/PUF750_MAR1__RT_A-W7L10_FFMCU_1.csv
+1_Parse_Data/PUF/Athena-Data/DATA_TOO_SHORT_PUF750_MAR1__RT_A-W7L10/PUF750_MAR1__RT_A-W7L10_SENSE_1.csv
+1_Parse_Data/PUF/Athena-Data/DATA_TOO_SHORT_PUF750_MAR1__RT_A-W7L10/PUF750_MAR1__RT_A-W7L10_SEU_1.csv
+1_Parse_Data/PUF/Athena-Data/DATA_TOO_SHORT_PUF750_MAR1__RT_A-W7L10/PUF750_MAR1__RT_A-W7L10_SRAM0_1.csv
+1_Parse_Data/PUF/Athena-Data/DATA_TOO_SHORT_PUF750_MAR1__RT_A-W7L10/PUF750_MAR1__RT_A-W7L10_SRAM1_1.csv
+1_Parse_Data/PUF/Athena-Data/INCOMPLETE_FF_PUF750_FEB29__RT_A-W7L51/PUF750_FEB29__RT_A-W7L51_FFMCU_1.csv
+1_Parse_Data/PUF/Athena-Data/INCOMPLETE_FF_PUF750_FEB29__RT_A-W7L51/PUF750_FEB29__RT_A-W7L51_SENSE_1.csv
+1_Parse_Data/PUF/Athena-Data/INCOMPLETE_FF_PUF750_FEB29__RT_A-W7L51/PUF750_FEB29__RT_A-W7L51_SEU_1.csv
+1_Parse_Data/PUF/Athena-Data/INCOMPLETE_FF_PUF750_FEB29__RT_A-W7L51/PUF750_FEB29__RT_A-W7L51_SRAM0_1.csv
+1_Parse_Data/PUF/Athena-Data/INCOMPLETE_FF_PUF750_FEB29__RT_A-W7L51/PUF750_FEB29__RT_A-W7L51_SRAM1_1.csv
+1_Parse_Data/PUF/Athena-Data/INCOMPLETE_FF_PUF750_FEB29__RT_A-W8L17/PUF_FEB29__RT_A-W8L17_FFMCU_1.csv
+1_Parse_Data/PUF/Athena-Data/INCOMPLETE_FF_PUF750_FEB29__RT_A-W8L17/PUF_FEB29__RT_A-W8L17_SENSE_1.csv
+1_Parse_Data/PUF/Athena-Data/INCOMPLETE_FF_PUF750_FEB29__RT_A-W8L17/PUF_FEB29__RT_A-W8L17_SEU_1.csv
+1_Parse_Data/PUF/Athena-Data/INCOMPLETE_FF_PUF750_FEB29__RT_A-W8L17/PUF_FEB29__RT_A-W8L17_SRAM0_1.csv
+1_Parse_Data/PUF/Athena-Data/INCOMPLETE_FF_PUF750_FEB29__RT_A-W8L17/PUF_FEB29__RT_A-W8L17_SRAM1_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_60C_A-W7L25/PUF750_MAR19_TEMP_TESTS_60C_A-W7L25_FFMCU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_60C_A-W7L25/PUF750_MAR19_TEMP_TESTS_60C_A-W7L25_SENSE_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_60C_A-W7L25/PUF750_MAR19_TEMP_TESTS_60C_A-W7L25_SEU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_60C_A-W7L25/PUF750_MAR19_TEMP_TESTS_60C_A-W7L25_SRAM0_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_60C_A-W7L25/PUF750_MAR19_TEMP_TESTS_60C_A-W7L25_SRAM1_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_RT_A-W7L25/PUF750_MAR19_TEMP_TESTS_RT_A-W7L25_FFMCU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_RT_A-W7L25/PUF750_MAR19_TEMP_TESTS_RT_A-W7L25_SENSE_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_RT_A-W7L25/PUF750_MAR19_TEMP_TESTS_RT_A-W7L25_SEU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_RT_A-W7L25/PUF750_MAR19_TEMP_TESTS_RT_A-W7L25_SRAM0_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_RT_A-W7L25/PUF750_MAR19_TEMP_TESTS_RT_A-W7L25_SRAM1_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR1_INCREASED_FF_LEN_RT_A-W7L51/PUF750_MAR1_INCREASED_FF_LEN_RT_A-W7L51_FFMCU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR1_INCREASED_FF_LEN_RT_A-W7L51/PUF750_MAR1_INCREASED_FF_LEN_RT_A-W7L51_SENSE_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR1_INCREASED_FF_LEN_RT_A-W7L51/PUF750_MAR1_INCREASED_FF_LEN_RT_A-W7L51_SEU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR1_INCREASED_FF_LEN_RT_A-W7L51/PUF750_MAR1_INCREASED_FF_LEN_RT_A-W7L51_SRAM0_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR1_INCREASED_FF_LEN_RT_A-W7L51/PUF750_MAR1_INCREASED_FF_LEN_RT_A-W7L51_SRAM1_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR1_TEST2_RT_A-W7L10/PUF750_MAR1_TEST2_RT_A-W7L10_FFMCU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR1_TEST2_RT_A-W7L10/PUF750_MAR1_TEST2_RT_A-W7L10_SENSE_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR1_TEST2_RT_A-W7L10/PUF750_MAR1_TEST2_RT_A-W7L10_SEU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR1_TEST2_RT_A-W7L10/PUF750_MAR1_TEST2_RT_A-W7L10_SRAM0_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR1_TEST2_RT_A-W7L10/PUF750_MAR1_TEST2_RT_A-W7L10_SRAM1_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR4__RT_A-W8L17/PUF750_MAR4__RT_A-W8L17_FFMCU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR4__RT_A-W8L17/PUF750_MAR4__RT_A-W8L17_SENSE_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR4__RT_A-W8L17/PUF750_MAR4__RT_A-W8L17_SEU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR4__RT_A-W8L17/PUF750_MAR4__RT_A-W8L17_SRAM0_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR4__RT_A-W8L17/PUF750_MAR4__RT_A-W8L17_SRAM1_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L25/PUF750_MAR7__RT_A-W7L25_FFMCU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L25/PUF750_MAR7__RT_A-W7L25_SENSE_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L25/PUF750_MAR7__RT_A-W7L25_SEU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L25/PUF750_MAR7__RT_A-W7L25_SRAM0_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L25/PUF750_MAR7__RT_A-W7L25_SRAM1_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L7/PUF750_MAR7__RT_A-W7L7_FFMCU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L7/PUF750_MAR7__RT_A-W7L7_SENSE_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L7/PUF750_MAR7__RT_A-W7L7_SEU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L7/PUF750_MAR7__RT_A-W7L7_SRAM0_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L7/PUF750_MAR7__RT_A-W7L7_SRAM1_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L77/PUF750_MAR7__RT_A-W7L77_FFMCU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L77/PUF750_MAR7__RT_A-W7L77_SENSE_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L77/PUF750_MAR7__RT_A-W7L77_SEU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L77/PUF750_MAR7__RT_A-W7L77_SRAM0_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR7__RT_A-W7L77/PUF750_MAR7__RT_A-W7L77_SRAM1_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-28_BADDATA/PUF750_JAN26__RT_C20-28_FFMCU_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-28_BADDATA/PUF750_JAN26__RT_C20-28_SENSE_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-28_BADDATA/PUF750_JAN26__RT_C20-28_SEU_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-28_BADDATA/PUF750_JAN26__RT_C20-28_SRAM_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N1/PUF750_JAN26__RT_C20-N1_FFMCU_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N1/PUF750_JAN26__RT_C20-N1_SENSE_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N1/PUF750_JAN26__RT_C20-N1_SEU_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N1/PUF750_JAN26__RT_C20-N1_SRAM_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N5/PUF750_JAN26__RT_C20-N5_FFMCU_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N5/PUF750_JAN26__RT_C20-N5_SENSE_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N5/PUF750_JAN26__RT_C20-N5_SEU_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N5/PUF750_JAN26__RT_C20-N5_SRAM_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N5_2/PUF750_JAN26__RT_C20-N5_FFMCU_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N5_2/PUF750_JAN26__RT_C20-N5_SENSE_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N5_2/PUF750_JAN26__RT_C20-N5_SEU_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N5_2/PUF750_JAN26__RT_C20-N5_SRAM_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N8/PUF750_JAN26__RT_C20-N8_FFMCU_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N8/PUF750_JAN26__RT_C20-N8_SENSE_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N8/PUF750_JAN26__RT_C20-N8_SEU_1.csv
+1_Parse_Data/PUF/C20-Data/PUF750_JAN26__RT_C20-N8/PUF750_JAN26__RT_C20-N8_SRAM_1.csv
+1_Parse_Data/PUF/C21-Data/SRAM_uniqueness_matrix_C21-MAR7.csv
+1_Parse_Data/PUF/C21-Data/noramp_750_JAN9__RT_C21-5/noramp_750_JAN9__RT_C21-5_SENSE_1.csv
+1_Parse_Data/PUF/C21-Data/noramp_750_JAN9__RT_C21-5/noramp_750_JAN9__RT_C21-5_SEU_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN17__RT_C21-16/PUF750_JAN17__RT_C21-16_FFMCU_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN17__RT_C21-16/PUF750_JAN17__RT_C21-16_SENSE_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN17__RT_C21-16/PUF750_JAN17__RT_C21-16_SEU_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN17__RT_C21-16/PUF750_JAN17__RT_C21-16_SRAM_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN17__RT_C21-5/PUF750_JAN17__RT_C21-5_FFMCU_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN17__RT_C21-5/PUF750_JAN17__RT_C21-5_SENSE_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN17__RT_C21-5/PUF750_JAN17__RT_C21-5_SEU_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN17__RT_C21-5/PUF750_JAN17__RT_C21-5_SRAM_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN18__RT_C21-39/PUF750_JAN18__RT_C21-39_FFMCU_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN18__RT_C21-39/PUF750_JAN18__RT_C21-39_SENSE_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN18__RT_C21-39/PUF750_JAN18__RT_C21-39_SEU_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN18__RT_C21-39/PUF750_JAN18__RT_C21-39_SRAM_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN18__RT_C21-N2/PUF750_JAN18__RT_C21-N2_FFMCU_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN18__RT_C21-N2/PUF750_JAN18__RT_C21-N2_SENSE_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN18__RT_C21-N2/PUF750_JAN18__RT_C21-N2_SEU_1.csv
+1_Parse_Data/PUF/C21-Data/PUF750_JAN18__RT_C21-N2/PUF750_JAN18__RT_C21-N2_SRAM_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_JAN8__RT_C21-16/rampup_JAN8__RT_C21-16_SENSE_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_JAN8__RT_C21-16/rampup_JAN8__RT_C21-16_SEU_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_JAN8__RT_C21-40/rampup_JAN8__RT_C21-40_SENSE_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_JAN8__RT_C21-40/rampup_JAN8__RT_C21-40_SEU_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_JAN8__RT_C21-9/rampup_JAN8__RT_C21-9_SENSE_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_JAN8__RT_C21-9/rampup_JAN8__RT_C21-9_SEU_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_JAN9__RT_C21-39/rampup_JAN9__RT_C21-39_SENSE_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_JAN9__RT_C21-39/rampup_JAN9__RT_C21-39_SEU_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_JAN9__RT_C21-5/rampup_JAN9__RT_C21-5_SENSE_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_JAN9__RT_C21-5/rampup_JAN9__RT_C21-5_SEU_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_test1_C21-19/rampup_TEST1___C21-19_SENSE_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_test1_C21-19/rampup_TEST1___C21-19_SEU_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_test1_C21-40/rampup____C21-40_SENSE_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_test1_C21-5/test____C21-5_SENSE_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_test1_C21-5/test____C21-5_SEU_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_test1_C21-9/rampup____C21-9_SENSE_1.csv
+1_Parse_Data/PUF/C21-Data/rampup_test1_C21-9/rampup____C21-9_SEU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_70_A-W7L25/PUF750_MAR19_TEMP_TESTS_70_A-W7L25_FFMCU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_70_A-W7L25/PUF750_MAR19_TEMP_TESTS_70_A-W7L25_SENSE_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_70_A-W7L25/PUF750_MAR19_TEMP_TESTS_70_A-W7L25_SEU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_70_A-W7L25/PUF750_MAR19_TEMP_TESTS_70_A-W7L25_SRAM0_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_70_A-W7L25/PUF750_MAR19_TEMP_TESTS_70_A-W7L25_SRAM1_1.csv
+1_Parse_Data/PUF/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_FFMCU/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_FFMCU_1.csv
+1_Parse_Data/PUF/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_SENSE/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_SENSE_1.csv
+1_Parse_Data/PUF/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_SEU/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_SEU_1.csv
+1_Parse_Data/PUF/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_SRAM0/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_SRAM0_1.csv
+1_Parse_Data/PUF/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_SRAM1/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_SRAM1_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_FFMCU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_SENSE_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_SEU_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_SRAM0_1.csv
+1_Parse_Data/PUF/Athena-Data/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25/PUF750_MAR19_TEMP_TESTS_70C_TEST2_A-W7L25_SRAM1_1.csv
+1_Parse_Data/EDITMEPLEASE/RUN_LOG.csv
+1_Parse_Data/EDITMEPLEASE/RUN_LOG.csv
+1_Parse_Data/MURR/RUN_LOG.csv
+1_Parse_Data/latchup_datalogger.py
+1_Parse_Data/EDITMEPLEASE/RUN_LOG.csv
+
+# Stale/generated FPGA artifacts and raw historical measurements.
+._*
+*.csv
+*.png
+*.rpt
+*.summary
+*.sof
+*.pof
+*.jic
+*.rbf
+loan_io/
+hps_isw_handoff/
+
+# Small, previously cross-built ARM sender and provenance distributed for HPS.
+!ethernet/build/
+ethernet/build/*
+!ethernet/build/arm-linux/
+ethernet/build/arm-linux/*
+!ethernet/build/arm-linux/n3_udp_sender
+!ethernet/build/arm-linux/BUILD.json
+
+# Historical generated metadata and editor/programmer state.
+*.sopcinfo
+*.smsg
+*.jdi
+*.pin
+*.sld
+*.qarlog
+*.cdf
+.qsys_edit/
+sram_log.txt

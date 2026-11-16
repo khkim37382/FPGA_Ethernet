@@ -1,0 +1,55 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use std.env.all;
+
+entity tb_n3_producer is end;
+architecture test of tb_n3_producer is
+    signal clk : std_logic := '0';
+    signal reset_n : std_logic := '0';
+    signal inputs : std_logic_vector(59 downto 0) := x"5abcde123456789";
+    signal data : std_logic_vector(159 downto 0);
+    signal ready, ack : std_logic := '0';
+begin
+    clk <= not clk after 10 ns;
+    dut : entity work.__PRODUCER__
+        port map(reset => reset_n, sys_clk => clk, counter_inmain => inputs,
+                 data_out => data, xmit_ready => ready, xmit_ack => ack,
+                 __EXTRA_PORTS__ SR_reset_LED => open);
+    process
+        variable expected, held : std_logic_vector(159 downto 0);
+    begin
+        for session in 0 to 1 loop
+            reset_n <= '0'; ack <= '0';
+            for i in 1 to 5 loop wait until rising_edge(clk); end loop;
+            wait until falling_edge(clk); wait for 1 ns; reset_n <= '1';
+            for index in 0 to __LAST_INDEX__ loop
+                for timeout in 1 to 1000 loop
+                    wait until rising_edge(clk); wait for 1 ns;
+                    exit when ready = '1';
+                end loop;
+                assert ready = '1' report "producer did not offer a record" severity failure;
+                held := data;
+                expected := (others => '0');
+                __EXPECTED_WORD__
+                assert data = expected report "wrong tag/channel/address/sample or truncated word at record " & integer'image(index) severity failure;
+                -- Simulate a full downstream FIFO: data and ready must hold.
+                for blocked in 1 to 17 loop
+                    wait until rising_edge(clk); wait for 1 ns;
+                    assert ready = '1' and data = held report "producer changed pending record under backpressure" severity failure;
+                end loop;
+                ack <= '1';
+                for timeout in 1 to 100 loop
+                    wait until rising_edge(clk); wait for 1 ns;
+                    exit when ready = '0';
+                end loop;
+                assert ready = '0' report "producer did not acknowledge acceptance" severity failure;
+                for hold_ack in 1 to 3 loop wait until rising_edge(clk); end loop;
+                wait for 1 ns; ack <= '0';
+            end loop;
+        end loop;
+        report "PASS: __PRODUCER__ complete words, ordered channels/addresses, stalls and reset";
+        finish;
+    end process;
+    process begin wait for 2 ms; assert false report "producer test timeout" severity failure; end process;
+end architecture;

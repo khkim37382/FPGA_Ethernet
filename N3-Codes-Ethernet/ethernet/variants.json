@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Athena_DE10_LSB",
+    "directory": "FPGA_DE10/Athena_DE10_LSB",
+    "original_revision": "2_5M_SRAM_SR",
+    "source_directory": "FPGA_DE10/SharedFiles",
+    "producer": "lsb",
+    "puf": false,
+    "sram0_address_bits": 13,
+    "sram0_data_bits": 64,
+    "sram1_address_bits": 11,
+    "sram1_data_bits": 128,
+    "clock_hz": 50000000
+  },
+  {
+    "name": "Athena_DE10_FFMCU",
+    "directory": "FPGA_DE10/Athena_DE10_FFMCU",
+    "original_revision": "2_5M_SRAM_SR",
+    "source_directory": "FPGA_DE10/Athena_DE10_FFMCU",
+    "producer": "ffmcu",
+    "puf": false,
+    "sram0_address_bits": 13,
+    "sram0_data_bits": 64,
+    "sram1_address_bits": 11,
+    "sram1_data_bits": 128,
+    "clock_hz": 50000000
+  },
+  {
+    "name": "Athena_DE10_PUF",
+    "directory": "FPGA_DE10/Athena_DE10_PUF",
+    "original_revision": "N3_Athena_DE10",
+    "source_directory": "FPGA_DE10/Athena_DE10_PUF",
+    "producer": "ffmcu",
+    "puf": true,
+    "sram0_address_bits": 13,
+    "sram0_data_bits": 64,
+    "sram1_address_bits": 11,
+    "sram1_data_bits": 128,
+    "clock_hz": 50000000
+  },
+  {
+    "name": "Zeus_DE10_LSB",
+    "directory": "FPGA_DE10/Zeus_DE10_LSB",
+    "original_revision": "2_5M_SRAM_SR",
+    "source_directory": "FPGA_DE10/SharedFiles",
+    "producer": "lsb",
+    "puf": false,
+    "sram0_address_bits": 9,
+    "sram0_data_bits": 40,
+    "sram1_address_bits": 10,
+    "sram1_data_bits": 128,
+    "clock_hz": 50000000
+  }
+]

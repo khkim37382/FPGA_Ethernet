@@ -1,0 +1,17 @@
+{
+  "target": "arm-linux-musleabihf",
+  "cpu": "cortex_a9",
+  "format": "ELF32 little endian ARM EABI5, static, stripped",
+  "compiler": "Zig 0.17.1",
+  "compiler_source": "https://ziglang.org/download/0.17.1/zig-aarch64-macos-0.17.1.tar.xz",
+  "compiler_archive_sha256": "75f1bc7a1e9852f17ec9a0c1895f767c4ec56d46bc8a834920eece1d0359dd8d",
+  "binary_sha256": "b324547da5399a94154e1109ed61ff30d74c7bf2b9e34bcce4d8a1b98619259d",
+  "binary_bytes": 54644,
+  "source_sha256": {
+    "bridge/n3_udp_sender.c": "b17009caac57fb4a549dda744289dc6b327306c4e5938a3a224dd04e5dc25f80",
+    "bridge/n3_record.h": "2687f6c16932e98173c57473ea814e987b74e327c51517ecbee3528df8fdc52f",
+    "multi_fpga_receiver/bridge/fpga_udp_bridge.c": "deb427cce2ea939f7a058602fb84d85615bd66ce33329d9efe1e799169800903",
+    "multi_fpga_receiver/bridge/fpga_udp_bridge.h": "f8c22dc3ac016d00ad23888d5faae5278fc74a083d8114d609c9cbb6949afd92"
+  },
+  "validation": "Cross-compiled successfully. ELF architecture inspected. Not executed on the physical HPS."
+}

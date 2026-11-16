@@ -1,0 +1,6 @@
+# macOS metadata and generated acquisition logs
+.DS_Store
+._*
+__pycache__/
+*.py[cod]
+**/ethernet/logs/

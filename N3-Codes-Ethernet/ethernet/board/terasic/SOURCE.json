@@ -1,0 +1,30 @@
+{
+  "url": "https://download.terasic.com/downloads/cd-rom/de10-standard/DE10-Standard_v.1.4.0_SystemCD.zip",
+  "archive_sha256": "bf84027344a4fe6cce9c9e50ef15ec4cf3d5605b33d3405ba94f109d7022be57",
+  "files": {
+    "soc_system.qsys": {
+      "archive_path": "Demonstration/SoC_FPGA/DE10_Standard_GHRD/soc_system.qsys",
+      "sha256": "31ac5867acf8285a6c7b967442eb344a9167ba9676db94973d4a1e970f87481c"
+    },
+    "DE10_Standard_GHRD.qsf": {
+      "archive_path": "Demonstration/SoC_FPGA/DE10_Standard_GHRD/DE10_Standard_GHRD.qsf",
+      "sha256": "12dbb8d7575e91b1f19ca049cfe42afcc453550d030c415e27f455dfc0950761"
+    },
+    "DE10_Standard_GHRD.v": {
+      "archive_path": "Demonstration/SoC_FPGA/DE10_Standard_GHRD/DE10_Standard_GHRD.v",
+      "sha256": "dfab0cd754c2f74b8017be5ff6b2febc6825754b5aeb1c4a225b468b973265ff"
+    },
+    "DE10_Standard_GHRD.sdc": {
+      "archive_path": "Demonstration/SoC_FPGA/DE10_Standard_GHRD/DE10_Standard_GHRD.sdc",
+      "sha256": "8fd8752304d0f6739e407505e8fdaca39e704e7e15764caf763e28629da9f293"
+    },
+    "soc_system_inst.v": {
+      "archive_path": "Demonstration/SoC_FPGA/DE10_Standard_GHRD/soc_system/soc_system_inst.v",
+      "sha256": "af3829659b911d4ee11678cd1d455aba99717fd0a8406242dae4d66a8171e3e4"
+    },
+    "soc_system_bb.v": {
+      "archive_path": "Demonstration/SoC_FPGA/DE10_Standard_GHRD/soc_system/soc_system_bb.v",
+      "sha256": "328c07aa69855eec0887f943c5c3e4bfbf4b66386f8478fcce8ef48215864241"
+    }
+  }
+}

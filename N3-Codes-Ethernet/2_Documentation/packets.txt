@@ -1,0 +1,36 @@
+160 bit package size
+
+SRs
+8 bit tag = 00100000
+125 ZEROS
+7 bit index
+12 bit count
+
+SRAM0 = "11100000"
+8 bit tag 
+16 bit addr
+128 bit word
+
+SRAM1
+8 bit tag  = "11100001
+16 bit addr
+128 bit word
+
+ADC0
+8 bit tag = 10000000
+128 ZEROS
+16 bit stuff
+
+
+ADC1
+8 bit tag = 01000000
+128 ZEROS
+16 bit stuff
+
+PUF none
+8 bit tag
+16 bit index
+120 bits PUF
+
+
+

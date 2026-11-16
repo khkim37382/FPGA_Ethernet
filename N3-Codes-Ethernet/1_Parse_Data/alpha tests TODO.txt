@@ -1,0 +1,26 @@
+vdd com11
+vddio com4
+<codetype>-ALPHA-10U
+
+run 00 functional
+
+run 14 = 750 and change to Zeus LSB 000
+run 15 = 650 
+run 16 = 550 
+
+run 07 750 functional athena lsb
+run 08 760
+run 09 550 
+^^jumper on 
+
+run 17 = 550 and change to Athena LSB 000 
+run 18 = 650 
+run 19 = 750  start: 6:07pm
+
+001 002 003 functional athena HF
+
+run 20 = 550 and change to Athena HF 000 *on going*
+run 21 = 650 
+run 22 = 750 
+
+run 23 to 33 same thing but 111

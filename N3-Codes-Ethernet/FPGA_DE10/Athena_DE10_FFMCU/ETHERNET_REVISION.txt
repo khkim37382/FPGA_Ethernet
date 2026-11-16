@@ -1,0 +1,1 @@
+Open N3_Ethernet.qpf. Read ../../ethernet/README.md. Regenerate ethernet/board/n3_hps before compilation.

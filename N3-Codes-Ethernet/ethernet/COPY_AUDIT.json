@@ -1,0 +1,24 @@
+{
+  "source": "../N3-Codes",
+  "source_commit": "bc5cfd03d294d2c5069c4b8701ddab38de606891",
+  "source_git_status": "clean",
+  "excluded_names": [
+    ".git",
+    ".github"
+  ],
+  "copied_source_file_count": 4587,
+  "source_bytes_excluding_git": 3602544094,
+  "modified_source_files": [
+    "README.md"
+  ],
+  "missing_source_files": [],
+  "git_metadata_paths_in_copy": [],
+  "integration_variants": [
+    "Athena_DE10_LSB",
+    "Athena_DE10_FFMCU",
+    "Athena_DE10_PUF",
+    "Zeus_DE10_LSB"
+  ],
+  "selected_revision": "N3_Ethernet",
+  "historical_hardware_sources": "restored/preserved; Ethernet integration is in separate revisions and generated acquisition sources"
+}

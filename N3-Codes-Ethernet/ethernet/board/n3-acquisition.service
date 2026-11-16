@@ -1,0 +1,16 @@
+[Unit]
+Description=N3 FPGA acquisition to the multi-board UDP receiver
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/n3-board.env
+ExecStart=/opt/n3/bin/n3_udp_sender --uio ${N3_UIO} --id ${FPGA_ID} --dest ${N3_DEST} --port ${N3_PORT} --batch ${N3_BATCH}
+# A new sender starts a new sequence. Restart explicitly with a new receiver
+# session or an explicit continuation sequence, rather than restarting silently.
+Restart=no
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target

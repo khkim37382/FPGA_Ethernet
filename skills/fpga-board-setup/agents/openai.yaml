@@ -1,0 +1,4 @@
+interface:
+  display_name: "FPGA Board Setup"
+  short_description: "Bring up FPGA boards, boot media, SSH and Ethernet"
+  default_prompt: "Use $fpga-board-setup to bring up this FPGA board and verify its host connection."

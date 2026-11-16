@@ -80,3 +80,20 @@ functional check. These remain visible in the main README.
 
 No board programming, SD-card changes, live network changes or instrument
 commands were performed.
+
+## Physical HPS follow-up — 2026-11-16
+
+On a DE10-Standard with the stock Terasic Linux Console image, Linux boot,
+key-based SSH and physical Ethernet passed. A fresh ARMv7 sender build ran on
+the actual HPS and sent five simulated fixture records (140 bytes, one UDP
+datagram) to a macOS receiver. The captured payload matched exactly and decoded;
+source IP matched and no sequence gaps were observed in this smoke test.
+
+All four local HDL checks and the software tests were also rerun successfully
+on the Mac. The original distributed prebuilt ARM executable was not the fresh
+binary used for this physical run.
+
+This does not validate the new n3_hps system, Quartus generation/fitting/timing,
+custom boot artifacts, UIO/MMIO or daughtercard acquisition. Windows/Linux host
+procedures are documented but not physically tested in this run. See the
+[setup notes](../../docs/SETUP_LESSONS.md) and their evidence report.

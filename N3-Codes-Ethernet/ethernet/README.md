@@ -8,8 +8,12 @@ needs no network connection to generate projects, build senders, or receive data
 **Status:** all four source integrations pass local VHDL simulation, GHDL
 synthesis, and structural top-level lint. The common bridge and twelve-board
 UDP path pass local tests. An ARM Linux sender binary is provided.
-**Quartus generation/fitting/timing analysis and physical hardware operation
-have not been run.** No copied historical bitstream contains this integration.
+A fresh ARM sender build has also passed a physical HPS-to-Mac five-record
+simulated replay, with Linux boot and SSH verified. See
+[setup lessons](../../docs/SETUP_LESSONS.md) for the direct-link configuration
+and host-OS procedures.
+**Quartus generation/fitting/timing and physical N3 FPGA/UIO/daughtercard
+acquisition have not been run.** No copied historical bitstream contains this integration.
 
 ## Open the Ethernet revisions
 

@@ -1,10 +1,17 @@
 # Testing N3 Ethernet with an FPGA
 
+**Update — 2026-11-16:** physical Linux boot, SSH and HPS Ethernet replay now
+pass. The current direct-link setup uses host **192.168.50.1** and board
+**192.168.50.2**, with the dedicated direct-link receiver config. See
+[setup lessons](SETUP_LESSONS.md) for this verified path and Windows/Linux
+instructions. The 192.168.1.x addresses below remain the original twelve-board
+deployment example. Custom N3 FPGA/UIO/DUT testing is still outstanding.
+
 Start with **one DE10-Standard running Athena LSB**, then expand to other
 variants and multiple boards after the first board works. This project targets
 the Cyclone V SoC DE10-Standard, not an interchangeable DE10-Lite/Nano design.
 
-Local simulations passed previously, but the first Quartus build and physical
+Local simulations pass, but the first Quartus build and physical N3 acquisition
 bring-up remain to be done. A successful UDP transfer alone does not establish
 correct N3 DUT behavior.
 

@@ -1,0 +1,19 @@
+{
+  "tested_at": "2026-11-16T18:04:43.125650+00:00",
+  "board_ip": "192.168.50.2",
+  "port": 5000,
+  "records": 5,
+  "datagrams": 1,
+  "bytes": 140,
+  "payload_sha256": "c633a538b4353dc69733cff376b7415fe59a5779ff3c09428b9cb9d5d360fdc7",
+  "source_ip_verified": true,
+  "sequence_gaps": 0,
+  "exact_payload_match": true,
+  "arm_sender_ran_on_physical_hps": true,
+  "data": "SIMULATED RTL fixture; not physical N3 DUT acquisition",
+  "fpga_uio_tested": false,
+  "mac_ip": "192.168.50.1",
+  "sender_binary_sha256": "f8807f49bce5abe00c2bd931d83b016fddad1c157ff3e3cbb90b30a6eafeee5e",
+  "distributed_prebuilt_binary_tested": false,
+  "notes": "A fresh build ran on the physical HPS; the older tracked prebuilt executable was not the binary used in this run. One datagram is a smoke test, not a sustained loss/throughput test."
+}

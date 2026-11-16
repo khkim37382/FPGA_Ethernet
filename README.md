@@ -3,12 +3,18 @@
 N3 acquisition over Ethernet for the **DE10-Standard (Cyclone V SoC)**, with
 Athena LSB, Athena FFMCU, Athena PUF, and Zeus LSB revisions.
 
-**Status:** local simulation and software validation have passed. Quartus IP
-generation, fitting/timing closure, matching HPS boot integration, and physical
-FPGA/daughtercard operation remain unverified. No hardware-validated bitstream
+**Status:** local HDL/software checks pass. Physical DE10 Linux boot, key-based
+SSH, and a five-record HPS-to-Mac Ethernet smoke test also pass. Quartus IP
+generation/fitting/timing, matching custom N3 HPS/UIO integration and physical
+N3 daughtercard acquisition remain unverified. No hardware-validated N3 bitstream
 is included.
 
 ## Start here
+
+- [Setup lessons and Windows/Linux portability](docs/SETUP_LESSONS.md): what we
+  learned on the physical board, verified results, and moving to another host.
+- [Reusable FPGA setup skill](skills/fpga-board-setup/SKILL.md): identifies the
+  laptop OS and selects its macOS, Windows or Linux procedure.
 
 - [Hardware testing and Mac workflow](docs/FPGA_TESTING.md): build, program,
   configure HPS Linux, collect on your Mac, and check a first-board run.
